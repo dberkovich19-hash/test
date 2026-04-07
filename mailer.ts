@@ -6,6 +6,8 @@
  *   EMAIL_FROM, EMAIL_TO  (comma-separated for multiple recipients)
  */
 import nodemailer from "nodemailer";
+import fs from "fs";
+import path from "path";
 import type { MarketReport } from "./news-agent";
 
 function getEnv(key: string, fallback?: string): string {
@@ -42,6 +44,7 @@ export async function sendReport(report: MarketReport): Promise<void> {
 
   const subject = formatSubject(report);
   const transport = buildTransport();
+  const attachment = findPdf(report);
 
   await transport.sendMail({
     from,
@@ -49,9 +52,19 @@ export async function sendReport(report: MarketReport): Promise<void> {
     subject,
     text: report.plainText,
     html: report.html,
+    attachments: attachment ? [attachment] : [],
   });
 
-  console.log(`  [email] Sent to ${to}`);
+  console.log(`  [email] Sent to ${to}${attachment ? " (+ PDF attached)" : ""}`);
+}
+
+function findPdf(report: MarketReport): { filename: string; content: Buffer } | null {
+  const pad = (n: number) => String(n).padStart(2, "0");
+  const d = report.timestamp;
+  const stem = `${d.getUTCFullYear()}-${pad(d.getUTCMonth() + 1)}-${pad(d.getUTCDate())}-${pad(d.getUTCHours())}${pad(d.getUTCMinutes())}`;
+  const pdfPath = path.join(__dirname, "briefings", `${stem}.pdf`);
+  if (!fs.existsSync(pdfPath)) return null;
+  return { filename: `Dorian-LPG-Briefing-${stem}.pdf`, content: fs.readFileSync(pdfPath) };
 }
 
 function formatSubject(report: MarketReport): string {
