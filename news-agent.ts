@@ -7,6 +7,8 @@
  * Returns both plain-text and HTML versions of the report.
  */
 import Anthropic from "@anthropic-ai/sdk";
+import fs from "fs";
+import path from "path";
 
 const client = new Anthropic();
 
@@ -209,7 +211,23 @@ Then produce the Dorian LPG Market Briefing following the exact template in your
   }
 
   const html = markdownToHtml(finalText, now);
-  return { timestamp: now, plainText: finalText, html };
+  const report: MarketReport = { timestamp: now, plainText: finalText, html };
+  saveHtmlReport(report);
+  return report;
+}
+
+/** Saves the HTML briefing to briefings/YYYY-MM-DD-HHmm.html */
+function saveHtmlReport(report: MarketReport): void {
+  const dir = path.join(__dirname, "briefings");
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+
+  const pad = (n: number) => String(n).padStart(2, "0");
+  const d = report.timestamp;
+  const filename = `${d.getUTCFullYear()}-${pad(d.getUTCMonth() + 1)}-${pad(d.getUTCDate())}-${pad(d.getUTCHours())}${pad(d.getUTCMinutes())}.html`;
+  const filepath = path.join(dir, filename);
+
+  fs.writeFileSync(filepath, report.html, "utf8");
+  console.log(`  [pdf]    Saved → briefings/${filename}  (open in Chrome → Ctrl+P → Save as PDF)`);
 }
 
 /** Minimal markdown → HTML converter sufficient for the briefing template */
