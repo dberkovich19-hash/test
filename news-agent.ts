@@ -9,6 +9,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 import fs from "fs";
 import path from "path";
+import { execSync } from "child_process";
 
 const client = new Anthropic();
 
@@ -216,18 +217,26 @@ Then produce the Dorian LPG Market Briefing following the exact template in your
   return report;
 }
 
-/** Saves the HTML briefing to briefings/YYYY-MM-DD-HHmm.html */
+/** Saves HTML + PDF to briefings/YYYY-MM-DD-HHmm.{html,pdf} */
 function saveHtmlReport(report: MarketReport): void {
   const dir = path.join(__dirname, "briefings");
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
 
   const pad = (n: number) => String(n).padStart(2, "0");
   const d = report.timestamp;
-  const filename = `${d.getUTCFullYear()}-${pad(d.getUTCMonth() + 1)}-${pad(d.getUTCDate())}-${pad(d.getUTCHours())}${pad(d.getUTCMinutes())}.html`;
-  const filepath = path.join(dir, filename);
+  const stem = `${d.getUTCFullYear()}-${pad(d.getUTCMonth() + 1)}-${pad(d.getUTCDate())}-${pad(d.getUTCHours())}${pad(d.getUTCMinutes())}`;
+  const htmlPath = path.join(dir, `${stem}.html`);
+  const pdfPath  = path.join(dir, `${stem}.pdf`);
 
-  fs.writeFileSync(filepath, report.html, "utf8");
-  console.log(`  [pdf]    Saved → briefings/${filename}  (open in Chrome → Ctrl+P → Save as PDF)`);
+  fs.writeFileSync(htmlPath, report.html, "utf8");
+
+  try {
+    execSync(`python3 -c "from weasyprint import HTML; HTML(filename='${htmlPath}').write_pdf('${pdfPath}')"`, { stdio: "pipe" });
+    console.log(`  [saved]  briefings/${stem}.pdf`);
+  } catch {
+    // weasyprint not available — HTML still saved as fallback
+    console.log(`  [saved]  briefings/${stem}.html  (install weasyprint to auto-generate PDF)`);
+  }
 }
 
 /** Minimal markdown → HTML converter sufficient for the briefing template */
