@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dorian LPG Market Briefing — 7 April 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #fff;
+      padding: 40px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    /* ── Header ── */
+    .header {
+      background: #0d1b2a;
+      color: white;
+      padding: 22px 28px;
+      border-radius: 6px;
+      margin-bottom: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header-left .company {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      opacity: 0.6;
+      margin-bottom: 4px;
+    }
+    .header-left .title {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+    .header-right {
+      text-align: right;
+      font-size: 12px;
+      opacity: 0.75;
+      line-height: 1.8;
+    }
+    .header-right .date {
+      font-size: 14px;
+      font-weight: 600;
+      opacity: 1;
+    }
+
+    /* ── Sections ── */
+    .section {
+      margin-bottom: 22px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    .section:last-of-type { border-bottom: none; }
+
+    h2 {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #0d1b2a;
+      background: #f0f4f8;
+      padding: 6px 10px;
+      border-left: 3px solid #0d6efd;
+      margin-bottom: 12px;
+    }
+
+    /* ── Executive Summary ── */
+    .exec-summary ul {
+      list-style: none;
+      padding: 0;
+    }
+    .exec-summary li {
+      padding: 8px 12px 8px 36px;
+      margin-bottom: 6px;
+      background: #f8f9fa;
+      border-radius: 4px;
+      position: relative;
+      font-size: 13px;
+    }
+    .exec-summary li::before {
+      content: "▶";
+      position: absolute;
+      left: 12px;
+      color: #0d6efd;
+      font-size: 9px;
+      top: 11px;
+    }
+
+    /* ── Price Table ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 4px;
+      font-size: 12.5px;
+    }
+    thead tr {
+      background: #0d1b2a;
+      color: white;
+    }
+    thead th {
+      padding: 8px 12px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    tbody tr:nth-child(even) { background: #f8f9fa; }
+    tbody tr:hover { background: #eef3ff; }
+    tbody td {
+      padding: 8px 12px;
+      border-bottom: 1px solid #eee;
+    }
+    .up   { color: #16a34a; font-weight: 700; }
+    .down { color: #dc2626; font-weight: 700; }
+    .flat { color: #6b7280; font-weight: 700; }
+
+    /* ── Body sections ── */
+    .body-content p {
+      margin-bottom: 8px;
+      color: #2d2d2d;
+    }
+    .body-content ul {
+      padding-left: 18px;
+      margin-bottom: 8px;
+    }
+    .body-content li {
+      margin-bottom: 5px;
+      color: #2d2d2d;
+    }
+    strong { color: #0d1b2a; }
+
+    /* ── Alert box ── */
+    .alert {
+      background: #fff8e1;
+      border-left: 4px solid #f59e0b;
+      padding: 10px 14px;
+      border-radius: 0 4px 4px 0;
+      margin-bottom: 10px;
+      font-size: 12.5px;
+    }
+    .alert strong { color: #92400e; }
+
+    /* ── Outlook items ── */
+    .outlook-item {
+      display: flex;
+      gap: 10px;
+      padding: 7px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 12.5px;
+    }
+    .outlook-item:last-child { border-bottom: none; }
+    .outlook-label {
+      font-weight: 700;
+      color: #0d1b2a;
+      min-width: 220px;
+      font-size: 12px;
+    }
+
+    /* ── Sources table ── */
+    .sources-table { font-size: 11.5px; }
+    .sources-table td { padding: 5px 10px; vertical-align: top; }
+    .sources-table td:first-child {
+      font-weight: 600;
+      color: #0d1b2a;
+      width: 38%;
+    }
+    .sources-table a { color: #0d6efd; text-decoration: none; }
+
+    /* ── Caveat ── */
+    .caveat {
+      background: #fff0f0;
+      border-left: 4px solid #dc2626;
+      padding: 10px 14px;
+      border-radius: 0 4px 4px 0;
+      margin-top: 16px;
+      font-size: 11.5px;
+      color: #444;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: 28px;
+      padding-top: 14px;
+      border-top: 1px solid #ddd;
+      font-size: 11px;
+      color: #999;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* ── Print styles ── */
+    @media print {
+      body { padding: 0; font-size: 11.5px; }
+      .header { border-radius: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      h2 { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      thead tr { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .section { page-break-inside: avoid; }
+      .no-print { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Print button (hidden on print) -->
+  <div class="no-print" style="text-align:right;margin-bottom:16px">
+    <button onclick="window.print()"
+      style="background:#0d1b2a;color:white;border:none;padding:9px 20px;border-radius:4px;
+             font-size:13px;cursor:pointer;font-weight:600">
+      ⬇ Save as PDF (Ctrl+P)
+    </button>
+  </div>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-left">
+      <div class="company">Dorian LPG · Market Intelligence</div>
+      <div class="title">Oil &amp; LPG Market Briefing</div>
+      <div style="font-size:12px;opacity:0.65;margin-top:6px">
+        Bloomberg · Yahoo Finance · NY Times · TradeWinds
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="date">Tuesday, 7 April 2026</div>
+      <div>~09:00 UTC</div>
+      <div style="margin-top:6px;font-size:11px;opacity:0.6">CONFIDENTIAL</div>
+    </div>
+  </div>
+
+  <!-- Executive Summary -->
+  <div class="section exec-summary">
+    <h2>Executive Summary</h2>
+    <ul>
+      <li>The de-facto closure of the <strong>Strait of Hormuz</strong> since 28 February (US-Israeli strikes on Iran) is the most disruptive LPG shipping event since Abqaiq 2019. VLGC operators with US Gulf exposure are the primary beneficiaries — those reliant on Middle East liftings are severely constrained.</li>
+      <li><strong>BLPG1 (Middle East–Japan) has been suspended</strong> by the Baltic Exchange. BLPG3 (US Gulf–Japan) is now the operative VLGC benchmark, with spot rates estimated ~$52,800/day (+20% in ~4 days, unconfirmed via primary broker data).</li>
+      <li><strong>Crude at ~$112/bbl</strong> (WTI $112.41, Brent $111.25) — nearly double January 2026 levels, driven entirely by Hormuz risk premium.</li>
+      <li><strong>China has cut US propane purchases ~48% YoY</strong> (~172,500 b/d vs 329,500 b/d in 2024) on trade tensions — suppressing Mont Belvieu flat prices and the US–Asia arb.</li>
+      <li><strong>Saudi CP held flat</strong> for April: propane $615/MT, butane $605/MT — a stabilization signal despite Hormuz disruption.</li>
+    </ul>
+  </div>
+
+  <!-- Prices -->
+  <div class="section">
+    <h2>Prices at a Glance</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Indicator</th>
+          <th>Current</th>
+          <th>Change</th>
+          <th>Direction</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>WTI Crude</strong></td>
+          <td>$112.41/bbl</td>
+          <td>~+94% YTD</td>
+          <td class="up">↑ Rising</td>
+        </tr>
+        <tr>
+          <td><strong>Brent Crude</strong></td>
+          <td>$111.25/bbl</td>
+          <td>~+$47.50 vs Apr 2025</td>
+          <td class="up">↑ Rising</td>
+        </tr>
+        <tr>
+          <td><strong>Mont Belvieu Propane</strong></td>
+          <td>~$0.605/gal <em>(Feb 2026)</em></td>
+          <td>Apr data not yet published</td>
+          <td class="flat">→ Flat</td>
+        </tr>
+        <tr>
+          <td><strong>Mont Belvieu Butane</strong></td>
+          <td>N/A</td>
+          <td>—</td>
+          <td class="flat">→ N/A</td>
+        </tr>
+        <tr>
+          <td><strong>Saudi CP Propane</strong></td>
+          <td>$615/MT (Apr 2026)</td>
+          <td>Flat MoM</td>
+          <td class="flat">→ Flat</td>
+        </tr>
+        <tr>
+          <td><strong>VLGC Spot Rate (BLPG3)</strong></td>
+          <td>~$52,800/day <em>(unconfirmed)</em></td>
+          <td>+20% est. in ~4 days</td>
+          <td class="up">↑ Rising</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="font-size:11px;color:#888;margin-top:8px;font-style:italic">
+      * BLPG1 daily quotation suspended by Baltic Exchange as of early March 2026. Mont Belvieu April 2026 EIA data not yet published.
+    </div>
+  </div>
+
+  <!-- Supply -->
+  <div class="section">
+    <h2>Supply — Permian &amp; US Exports</h2>
+    <div class="body-content">
+      <ul>
+        <li>Permian natural gas (NGL-rich associated gas) tracking <strong>~29.5 Bcf/d in 2026</strong>, up 1.7% YoY. Crude production mild ~1% decline to 6.52 MMbbl/d.</li>
+        <li>NGL takeaway capacity expanding from ~4.4 MMb/d → <strong>~5.5 MMb/d by 2030</strong> via Bahia NGL Pipeline (ExxonMobil/Enterprise, 600 Mb/d), Targa Speedway, and Lone Star Express II.</li>
+        <li>US LPG exports averaged ~1.735 MMb/d in Apr–Sep 2025, roughly flat YoY. <strong>Material new export capacity (Enterprise HCT +300,000 b/d) not until H2 2026</strong> — near-term upside limited.</li>
+        <li>China's retreat from US propane (~48% YoY decline) is the dominant demand headwind for FOB Mont Belvieu prices. OPIS: "above-average terminal fees, wonky arb, and volatile freight."</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Demand -->
+  <div class="section">
+    <h2>Demand — Asia &amp; Key Importers</h2>
+    <div class="body-content">
+      <ul>
+        <li><strong>China PDH:</strong> 3 new plants (SP Chemical 800kt/y, Sinopec Zhenhai 600kt/y, Yuanjin 750kt/y) scheduled 2026 — but SP Chemical and Yuanjin startups likely delayed on poor PDH margins. Wanhua Chemical retrofit could eliminate <strong>up to 2.17 MMt/y</strong> of propane demand. China redirecting purchases to Middle East and Russia.</li>
+        <li><strong>India:</strong> IOC, BPCL, HPCL signed new US term contracts (~2.0 MMt FY2026 from Chevron, Phillips 66, TotalEnergies). Indian Navy Operation Sankalp escorted 5 LPG carriers out of Hormuz in March. India holding ~90% imports from West Asia via Iran-granted exemptions.</li>
+        <li><strong>Japan/Korea:</strong> Japan ~$578/MT, Korea ~$547/MT Q1 2026. Korea US imports down ~20% YoY in 2025. Both capitalizing on lower spot prices to secure US cargoes.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Freight -->
+  <div class="section">
+    <h2>Freight &amp; Shipping</h2>
+    <div class="body-content">
+      <div class="alert">
+        <strong>⚠ BLPG1 Suspended:</strong> Baltic Exchange halted daily Middle East–Japan quotations as of early March 2026. No active market on this traditional route. BLPG3 (US Gulf–Japan) is now the only active VLGC benchmark.
+      </div>
+      <ul>
+        <li><strong>BLPG3 active and elevated:</strong> ~$52,800/day circulating in market (social media sourced, unconfirmed vs Clarksons/Fearnleys). Pre-crisis 2026 forecast was $40,000/day avg.</li>
+        <li><strong>Fleet growth headwind:</strong> 98 vessels delivering in 2026, including <strong>21 VLGCs</strong> (~45% of existing fleet in orderbook) — structural downward rate pressure once Hormuz normalizes.</li>
+        <li><strong>Ton-mile demand surging</strong> on US-origin rerouting — vessels bypassing Gulf entirely, adding significant voyage days.</li>
+        <li><strong>Red Sea/Houthi</strong> attacks resumed 28 February, forcing further Cape of Good Hope rerouting, compounding ton-mile gains.</li>
+        <li><strong>Panama Canal:</strong> No disruption reported — normal status.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- OPEC -->
+  <div class="section">
+    <h2>OPEC+ &amp; Geopolitics</h2>
+    <div class="body-content">
+      <ul>
+        <li><strong>Hormuz effectively closed</strong> to US/Israeli/Western-allied shipping since 28 Feb. Iran granted selective exemptions to China, Russia, India, Iraq, Pakistan flagged vessels (5 March).</li>
+        <li><strong>OPEC supply collapsed ~7.3 MMb/d</strong> through March — lowest since June 2020 — from involuntary Iranian export loss.</li>
+        <li>OPEC+ approved modest <strong>+206,000 b/d increase from April</strong> prior to crisis; 5 April ministerial likely maintained this while acknowledging the de facto involuntary cut.</li>
+        <li><strong>Trump ultimatum:</strong> threatened strikes on Iranian power plants/bridges unless Hormuz reopens — keeping risk premium elevated this week.</li>
+        <li><strong>Iran-Oman talks (2 April):</strong> drafting a Hormuz "monitoring protocol" — potential de-escalation signal. No agreement confirmed.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Outlook -->
+  <div class="section">
+    <h2>Outlook — Next 24–48 Hours</h2>
+    <div class="body-content">
+      <div class="outlook-item">
+        <div class="outlook-label">🔴 Trump / Iran / Hormuz</div>
+        <div>Any de-escalation signal could trigger $15–20/bbl crude selloff and reset VLGC rate expectations rapidly.</div>
+      </div>
+      <div class="outlook-item">
+        <div class="outlook-label">🟡 Iran-Oman Protocol</div>
+        <div>Final text could clarify which additional flag states gain transit access — directly impacting Gulf cargo flows.</div>
+      </div>
+      <div class="outlook-item">
+        <div class="outlook-label">📊 EIA Weekly Report (Wed)</div>
+        <div>Watch propane inventory draw/build data and Gulf Coast export volumes for most recent week.</div>
+      </div>
+      <div class="outlook-item">
+        <div class="outlook-label">💲 Mont Belvieu Pricing</div>
+        <div>OPIS/Argus April data will clarify where propane sits vs crude. Propane/WTI ratio is historically cheap right now.</div>
+      </div>
+      <div class="outlook-item">
+        <div class="outlook-label">🚢 BLPG3 Fixture Confirmations</div>
+        <div>Clarksons/broker confirmations of US Gulf–Japan fixtures will validate or challenge the ~$52,800/day headline.</div>
+      </div>
+      <div class="outlook-item">
+        <div class="outlook-label">🏭 China PDH Restart News</div>
+        <div>Any further delay announcements (SP Chemical, Yuanjin) would negatively impact Asian propane demand and arb economics.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sources -->
+  <div class="section">
+    <h2>Sources</h2>
+    <table class="sources-table">
+      <tbody>
+        <tr>
+          <td>WTI ~$112.41/bbl, Brent ~$111.25/bbl</td>
+          <td><a href="https://fortune.com/article/price-of-oil-04-06-2026/">Fortune</a> / <a href="https://www.cnbc.com/2026/04/05/crude-oil-prices-iran-war-strait-hormuz.html">CNBC</a></td>
+        </tr>
+        <tr>
+          <td>Saudi CP Propane $615/MT, Butane $605/MT</td>
+          <td><a href="https://www.polymerupdate.com/News/Details/1459741">Polymerupdate</a> / <a href="https://www.arabnews.com/node/2595018/business-economy">Arab News</a></td>
+        </tr>
+        <tr>
+          <td>Mont Belvieu Propane $0.605/gal (Feb 2026)</td>
+          <td><a href="https://tradingeconomics.com/united-states/propane-prices-mont-belvieu-texas-fed-data.html">TradingEconomics / FRED</a></td>
+        </tr>
+        <tr>
+          <td>BLPG1 suspended by Baltic Exchange</td>
+          <td><a href="https://www.lloydslist.com/LL1156643/">Lloyd's List</a></td>
+        </tr>
+        <tr>
+          <td>VLGC rate ~$52,800/day (+20% in 4 days)</td>
+          <td><a href="https://x.com/Lucid_Watcher/status/1984596608730927426">X/@Lucid_Watcher</a> — <em>unconfirmed, verify vs Clarksons</em></td>
+        </tr>
+        <tr>
+          <td>21 VLGCs delivering 2026; TC forecast $40k/day</td>
+          <td><a href="https://www.hellenicshippingnews.com/trade-policies-and-stronger-fleet-growth-pose-challenges-for-lpg-shipping-in-2026/">Hellenic Shipping News</a></td>
+        </tr>
+        <tr>
+          <td>Hormuz crisis timeline; Iran exemptions</td>
+          <td><a href="https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis">Wikipedia</a> / <a href="https://www.aljazeera.com/news/2026/3/26/tehranstollbooth-how-iran-picks-who-to-let-through-strait-of-hormuz">Al Jazeera</a></td>
+        </tr>
+        <tr>
+          <td>OPEC supply -7.3 MMb/d through March</td>
+          <td><a href="https://eagleintelmari.com/news/opec-output-7-million-bpd-plunge-march-2026">Eagle Intel Mari</a></td>
+        </tr>
+        <tr>
+          <td>China US propane ~172,500 b/d vs 329,500 b/d</td>
+          <td><a href="https://www.opis.com/blog/2026-preview-tariffs-new-export-capacity-weaken-gulf-coast-fob-propane-prices/">OPIS</a></td>
+        </tr>
+        <tr>
+          <td>China PDH new capacity; Wanhua -2.17 MMt/y</td>
+          <td><a href="https://www.spglobal.com/energy/en/news-research/latest-news/refined-products/122625-commodities-2026-chinas-us-propane-imports-may-not-recover-despite-new-pdh-capacity">S&amp;P Global</a></td>
+        </tr>
+        <tr>
+          <td>India ~2.0 MMt US LPG FY2026 term contracts</td>
+          <td><a href="https://www.opis.com/blog/tariff-imposition-distorts-us-asia-lpg-trade-while-india-forms-new-alliances/">OPIS</a></td>
+        </tr>
+        <tr>
+          <td>Permian NGL takeaway; Bahia Pipeline</td>
+          <td><a href="https://rbnenergy.com/daily-posts/blog/producers-midstreamers-preparing-rising-tide-permian-sourced-ngls">RBN Energy</a></td>
+        </tr>
+        <tr>
+          <td>Iran-Oman Hormuz monitoring protocol</td>
+          <td><a href="https://www.cnbc.com/2026/04/02/iran-war-oman-hormuz-strait.html">CNBC</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="caveat">
+      <strong>Data caveats:</strong> TradeWinds and Yahoo Finance were paywalled during this run. The BLPG3 ~$52,800/day figure originates from unverified social media — confirm with Clarksons, Fearnleys, or Baltic Exchange before using in any commercial or investor communication. Mont Belvieu April 2026 EIA data not yet published; February 2026 ($0.605/gal) is the most recent confirmed data point.
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div>Dorian LPG Market Intelligence Agent · Generated 7 April 2026 ~09:00 UTC</div>
+    <div>Sources: Bloomberg · Yahoo Finance · NY Times · TradeWinds</div>
+  </div>
+
+</body>
+</html>
