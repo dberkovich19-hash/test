@@ -113,22 +113,63 @@ export async function runNewsAgent(): Promise<MarketReport> {
   const now = new Date();
   const timestamp = now.toUTCString();
 
-  const sourceList = NEWS_SOURCES.map(
-    (s) => `- ${s.name}: fetch ${s.url} and search "${s.searchQuery}"`
-  ).join("\n");
+  // Build date strings used to pin searches to today
+  const pad = (n: number) => String(n).padStart(2, "0");
+  const dateLabel = now.toLocaleDateString("en-US", {
+    timeZone: "UTC",
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+  const dateShort = `${now.getUTCFullYear()}-${pad(now.getUTCMonth() + 1)}-${pad(now.getUTCDate())}`;
+  const monthYear = now.toLocaleDateString("en-US", { timeZone: "UTC", month: "long", year: "numeric" });
 
   const messages: Anthropic.MessageParam[] = [
     {
       role: "user",
-      content: `Current time: ${timestamp}
+      content: `TODAY IS ${dateLabel.toUpperCase()} (${dateShort}). Current UTC time: ${timestamp}
 
-Gather the latest oil and LPG market intelligence from these sources:
-${sourceList}
+You MUST only use information published within the last 48 hours. Flag anything older as [DATED].
+Do NOT carry forward prices or rates from previous days as if they are current.
 
-For each source: fetch the main page first, then run targeted searches for the most recent
-articles. Focus on anything published or updated in the last 6 hours.
+Run ALL of the following searches and fetches in order:
 
-Then produce the Dorian LPG Market Briefing following the exact template in your instructions.`,
+PRICES — include today's date in every query:
+1. Search: "WTI crude oil price ${dateShort}"
+2. Search: "Brent crude oil price ${dateShort}"
+3. Search: "Mont Belvieu propane price ${monthYear}"
+4. Search: "propane butane price today ${monthYear}"
+
+VLGC FREIGHT — must be current week:
+5. Search: "BLPG1 BLPG3 Baltic LPG index ${monthYear}"
+6. Search: "VLGC freight rate ${monthYear}"
+7. Search: "LPG tanker spot rate ${dateShort}"
+8. Fetch: https://www.tradewindsnews.com/lpg
+9. Search: "site:tradewindsnews.com VLGC LPG ${monthYear}"
+
+US SUPPLY:
+10. Search: "US LPG propane exports ${monthYear} EIA"
+11. Search: "EIA weekly petroleum report ${monthYear} propane inventory"
+12. Search: "Permian Basin NGL production ${monthYear}"
+
+GEOPOLITICS / OPEC:
+13. Search: "OPEC oil production ${dateShort}"
+14. Search: "oil market news ${dateShort}"
+15. Search: "Strait of Hormuz shipping ${monthYear}"
+
+ASIA DEMAND:
+16. Search: "China PDH propane ${monthYear}"
+17. Search: "Asia LPG demand ${monthYear}"
+
+LIVE FEEDS — fetch these pages for today's headlines:
+18. Fetch: https://finance.yahoo.com/topic/energy/
+19. Fetch: https://www.reuters.com/business/energy/
+20. Fetch: https://www.bloomberg.com/energy
+
+After gathering, produce the Dorian LPG Market Briefing. Every price and rate must cite
+its source and publication date. If you cannot find a figure published in the last 48 hours,
+write "Not yet published today — last known: $X (date)" rather than presenting stale data as current.`,
     },
   ];
 
