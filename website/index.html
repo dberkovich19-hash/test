@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neptune Pizza — Brighton Beach, Brooklyn</title>
+<meta name="description" content="Neptune Pizza — family-owned NY pizzeria in Brighton Beach, Brooklyn. Fresh pies, slices, pasta &amp; dinners. Halal options available. Cash only.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍕</text></svg>">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a class="logo" href="#top">
+      <span class="logo-emoji">🍕</span>
+      <span class="logo-text">Neptune Pizza</span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#menu">Menu</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#about">About</a>
+      <a href="#visit">Visit</a>
+      <a class="nav-cta" href="tel:+17189754472">Call Now</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <p class="eyebrow">Brighton Beach · Brooklyn, NY</p>
+        <h1>Neptune Pizza</h1>
+        <p class="hero-tagline">A humble family-owned slice shop, hand-tossing fresh pies since the neighborhood can remember.</p>
+        <div class="hero-meta">
+          <span class="rating">
+            <span class="stars" aria-hidden="true">★★★★☆</span>
+            <strong>4.3</strong> <span class="muted">(184 reviews)</span>
+          </span>
+          <span class="dot">·</span>
+          <span class="muted">$1–10 per person</span>
+          <span class="dot">·</span>
+          <span class="muted">Cash only</span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="tel:+17189754472">📞 Call to Order</a>
+          <a class="btn btn-secondary" href="#menu">View Menu</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="pizza-graphic">
+          <div class="pizza-slice-emoji">🍕</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="strip">
+    <div class="container strip-inner">
+      <div class="strip-item">
+        <span class="strip-icon">📍</span>
+        <span>3033 Coney Island Ave, Brooklyn, NY 11235</span>
+      </div>
+      <div class="strip-item">
+        <span class="strip-icon">🕒</span>
+        <span>Open Daily · Closes 9 PM</span>
+      </div>
+      <div class="strip-item">
+        <span class="strip-icon">💵</span>
+        <span>Cash Only · Takeout &amp; Delivery</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu" class="section">
+    <div class="container">
+      <h2 class="section-title">Menu</h2>
+      <p class="section-sub">Fresh dough, real cheese, made to order. Ask about Halal options.</p>
+
+      <div class="menu-tabs" id="menuTabs" role="tablist">
+        <button class="tab-btn active" data-tab="pies" role="tab" aria-selected="true">Pies</button>
+        <button class="tab-btn" data-tab="slices" role="tab" aria-selected="false">Slices</button>
+        <button class="tab-btn" data-tab="pasta" role="tab" aria-selected="false">Pasta</button>
+        <button class="tab-btn" data-tab="dinners" role="tab" aria-selected="false">Dinners</button>
+        <button class="tab-btn" data-tab="toppings" role="tab" aria-selected="false">Pizza Toppings</button>
+        <button class="tab-btn" data-tab="more" role="tab" aria-selected="false">More</button>
+      </div>
+
+      <div class="menu-panels">
+        <div class="menu-panel active" data-panel="pies">
+          <ul class="menu-list">
+            <li><span>Large Pie <small>18", regular</small></span></li>
+            <li><span>Medium Pie <small>16"</small></span></li>
+          </ul>
+        </div>
+
+        <div class="menu-panel" data-panel="slices">
+          <ul class="menu-list">
+            <li><span>Regular Slice</span></li>
+            <li><span>White Slice</span></li>
+            <li><span>Veggie Slice</span></li>
+            <li><span>Mushroom Slice</span></li>
+            <li><span>Chicken Slice</span></li>
+          </ul>
+        </div>
+
+        <div class="menu-panel" data-panel="pasta">
+          <ul class="menu-list">
+            <li><span>Baked Ziti &amp; Meat</span></li>
+            <li><span>Baked Ziti &amp; Sausage</span></li>
+            <li><span>Baked Ziti &amp; Chicken</span></li>
+          </ul>
+        </div>
+
+        <div class="menu-panel" data-panel="dinners">
+          <ul class="menu-list two-col">
+            <li><span>Lasagna</span></li>
+            <li><span>Chicken Parm</span></li>
+            <li><span>Eggplant Parm</span></li>
+            <li><span>Meatball Parm</span></li>
+            <li><span>Stuffed Shells</span></li>
+            <li><span>Cheese Ravioli</span></li>
+            <li><span>Sausage Dinner</span></li>
+          </ul>
+        </div>
+
+        <div class="menu-panel" data-panel="toppings">
+          <ul class="menu-list two-col">
+            <li><span>Plain Cheese</span></li>
+            <li><span>Extra Cheese</span></li>
+            <li><span>Pepperoni</span></li>
+            <li><span>Sausage</span></li>
+            <li><span>Meatballs</span></li>
+            <li><span>Mushroom</span></li>
+            <li><span>Green Peppers</span></li>
+            <li><span>Onions</span></li>
+          </ul>
+        </div>
+
+        <div class="menu-panel" data-panel="more">
+          <ul class="menu-list">
+            <li><span>Soda Can</span></li>
+            <li><span>Chicken Wings</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="menu-note">Prices vary — call <a href="tel:+17189754472">(718) 975-4472</a> for current pricing and today's specials.</p>
+    </div>
+  </section>
+
+  <section id="reviews" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">What Neighbors Say</h2>
+      <div class="rating-summary">
+        <span class="rating-big">4.3</span>
+        <div>
+          <div class="stars-big" aria-hidden="true">★★★★☆</div>
+          <div class="muted">Based on 184 Google reviews</div>
+        </div>
+      </div>
+
+      <div class="reviews-grid">
+        <blockquote class="review-card">
+          <p>&ldquo;Family owned and operated. They offer Halal options for anyone interested.&rdquo;</p>
+          <footer>— Sharique A., Local Guide</footer>
+        </blockquote>
+        <blockquote class="review-card">
+          <p>&ldquo;Been eating there for ages, since the 90's probably. A humble place with a superb NY slice.&rdquo;</p>
+          <footer>— Z R, Local Guide</footer>
+        </blockquote>
+        <blockquote class="review-card">
+          <p>&ldquo;The slice is fresh and the crust is the perfect crispness to it and fresh to the taste and touch.&rdquo;</p>
+          <footer>— leonard, Local Guide</footer>
+        </blockquote>
+        <blockquote class="review-card">
+          <p>&ldquo;I like that their pizza has large slices, always arrives near and in one piece. The crust is perfectly thin, crisp and tender.&rdquo;</p>
+          <footer>— Fronimakis A., Local Guide</footer>
+        </blockquote>
+        <blockquote class="review-card">
+          <p>&ldquo;Amazing, perfect slice! Awesome &lsquo;chew&rsquo;, great ratio of cheese to sauce. Quickly become one of my family's favorites.&rdquo;</p>
+          <footer>— Kris H., Local Guide</footer>
+        </blockquote>
+        <blockquote class="review-card">
+          <p>&ldquo;Always work together, husband and wife — a real family business. Best pizza in NY for me.&rdquo;</p>
+          <footer>— Ramil A., Local Guide</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="container about-inner">
+      <div>
+        <h2 class="section-title">A Neighborhood Staple</h2>
+        <p>Tucked behind the B68 bus stop on Coney Island Avenue, Neptune Pizza has been slinging hand-tossed pies to Brighton Beach for generations. It's a small, no-frills spot — a couple of tables, a hot oven, and a family that's been doing this for decades.</p>
+        <p>Thin, crisp crust. A fair ratio of sauce to cheese. Halal options on request. Whether you're grabbing a quick slice after the beach or ordering a full pie for the family, Neptune keeps it simple and keeps it fresh.</p>
+      </div>
+      <div class="about-facts">
+        <div class="fact"><span class="fact-num">184</span><span class="fact-label">Google Reviews</span></div>
+        <div class="fact"><span class="fact-num">4.3★</span><span class="fact-label">Average Rating</span></div>
+        <div class="fact"><span class="fact-num">$1–10</span><span class="fact-label">Per Person</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit" class="section section-alt">
+    <div class="container visit-inner">
+      <div class="visit-details">
+        <h2 class="section-title">Visit Us</h2>
+        <dl class="visit-list">
+          <div><dt>Address</dt><dd>3033 Coney Island Ave, Brooklyn, NY 11235</dd></div>
+          <div><dt>Phone</dt><dd><a href="tel:+17189754472">(718) 975-4472</a></dd></div>
+          <div><dt>Hours</dt><dd>Open Daily · Closes 9 PM</dd></div>
+          <div><dt>Payment</dt><dd>Cash only</dd></div>
+          <div><dt>Reservations</dt><dd>Not accepted — walk in or call ahead</dd></div>
+        </dl>
+        <a class="btn btn-primary" href="tel:+17189754472">📞 Call (718) 975-4472</a>
+      </div>
+      <div class="visit-map">
+        <iframe
+          title="Map to Neptune Pizza"
+          src="https://www.google.com/maps?q=3033+Coney+Island+Ave,+Brooklyn,+NY+11235&output=embed"
+          width="100%" height="360" style="border:0" allowfullscreen loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="logo footer-logo">
+      <span class="logo-emoji">🍕</span>
+      <span class="logo-text">Neptune Pizza</span>
+    </div>
+    <p class="muted">3033 Coney Island Ave, Brooklyn, NY 11235 · (718) 975-4472</p>
+    <p class="muted small">Family owned &amp; operated. Cash only. Since forever.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
